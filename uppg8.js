@@ -1,37 +1,42 @@
-// Här har du fått all js kod från genomgången
-// Den har självklart andra variabelnamn och annan funktionalitet än vad du behöver
-// Använ ddenna fil som utgångspunkt för att lösa uppgiften eller skriv din egen kod
+var finalNum = Math.floor(Math.random() * 100)
+var score = 0
+var oldNum = 0
+var slider = document.getElementById('valueSlider')
 
-let temperatureSlider = document.getElementById("temperatureSlider");
-let selectedTemperatureElement = document.getElementById("selectedTemperature");
-let weatherMessageElement = document.getElementById("weatherMessage");
+slider.addEventListener('input', function(){
+    document.getElementById('selectedNumber').innerHTML=slider.value
+})
 
-// Initial display of selected temperature
-selectedTemperatureElement.innerText = temperatureSlider.value + "°C";
-
-// Initial update of weather message based on the default temperature
-updateWeatherMessage(temperatureSlider.value);
-
-// Event listener for slider change
-temperatureSlider.addEventListener("input", function() {
-    // Update the displayed temperature
-    selectedTemperatureElement.innerText = temperatureSlider.value + "°C";
-
-    // Update the weather message based on the selected temperature
-    updateWeatherMessage(temperatureSlider.value);
-});
-
-// Function to update the weather message
-function updateWeatherMessage(temperature) {
-    if (temperature > 30) {
-        weatherMessageElement.innerText = "It's a hot day!";
-        weatherMessageElement.style.color = "red";
-    } else if (temperature <= 30 && temperature >= 20) {
-        weatherMessageElement.innerText = "The weather is pleasant.";
-        weatherMessageElement.style.color = "green";
-    } else {
-        weatherMessageElement.innerText = "It's a bit chilly.";
-        weatherMessageElement.style.color = "blue";
+function updateHint(){
+    if (parseInt(slider.value) < finalNum){
+        document.getElementById('hint').innerHTML = 'Number is higher'
+    }
+    else if (parseInt(slider.value) > finalNum){
+        document.getElementById('hint').innerHTML = 'Number is lower'
+    }
+    else{
+        document.getElementById('hint').innerHTML = 'Number is Correct'
+        return true
     }
 }
 
+function guessNumber(){
+    if (updateHint() && finalNum != oldNum){
+
+        score += 1
+        oldNum = finalNum
+                   
+        document.getElementById('score').innerHTML = 'Score: ' + score
+        var sliderMax = parseInt(slider.getAttribute('max'))
+        slider.setAttribute('max', sliderMax + 100 )
+        newNumber()
+    }
+
+}
+
+function newNumber(){
+    finalNum = Math.floor(Math.random() * 100)
+    console.log('Button: '+ finalNum)
+    updateHint()
+}
+    

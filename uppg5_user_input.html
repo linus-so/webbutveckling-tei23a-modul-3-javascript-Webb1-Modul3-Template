@@ -1,4 +1,33 @@
-    <!-- TODO: Klistra in din kod från alert.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uppgift 1: Alert</title>
+  </head>
+  <body>
+    <label for="favFood">Fav food</label>
+    <input
+    type="text"
+    id="favFood"
+    name="favFood">
+
+    <button onclick="showAlert()">Click me for to be welcomed</button>
+  </body>
+
+  <script>
+
+
+    function showAlert(){
+        let food= favFood.value
+        alert(food + " MUMS")
+    }
+  </script>
+</html>
+   
+   
+   
+   <!-- TODO: Klistra in din kod från alert.html
     Låt användaren skriva in sin favoritmat med en input-tag
     När användaren klickar på knappen ska du välkomna användaren till hemsidan 
     + skriva ut dens favoritmat + "MUMS" -->

@@ -3,7 +3,7 @@
     Din uppgift är att bygga ett "spel" där användaren ska gissa vilket tal som är valt.
     När användaren drar i slidern ska det stå om det valda talet är större eller mindre än det valda talet.
     När användaren har gissat rätt ska det stå att användaren har gissat rätt.
-    All funktionalitet ska vara implementerad i filen uppg2.js.
+    All funktionalitet ska vara implementerad i filen uppg8.js.
     Extrauppgift 1: Lägg till en knapp som slumpar fram ett nytt tal.
     Extrauppgift 2: Lägg till kod i js så att det max-värdet på slidern ökar med 100 varje gång användaren gissat rätt.
                     Starta även om spelet när användaren har haft rätt och ha koll på hur många gånger den har haft rätt.
@@ -25,11 +25,16 @@
 
     <label for="numberSlider">Select number</label>
     <br>
-    <input type="range" id="valueSlider" min="0" max="100" value="25">
+    <input type="range" id="valueSlider" min="0" max="100" value="50">
     <br>
-    <span id="selectedNumber"></span>
+    <span id="selectedNumber">50</span>
     <br>
     <p id="hint"></p>
+    <br>
+    <button id="guessButton" onclick="guessNumber()">Guess</button>
+    <br>
+    <button id="newNumberButton" onclick="newNumber()">New Number</button>
+    <p id="score">Score: 0</p>
 
 
     <script src="uppg8.js"></script>
